@@ -22,15 +22,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //
     Button cpuCoolerBtn;
-    public void createCPUCoolerBtn(){}
+    public void createCPUCoolerBtn(){
+        cpuCoolerBtn = (Button)findViewById(R.id.cooler_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, CPUCoolerActivity.class);
+        cpuCoolerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Starting CPU Cooler activity", Toast.LENGTH_SHORT).show();
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
+    }
 
-    Button moboBtn;
-    public void createMotherboardBtn(){}
+    Button motherBoardBtn;
+    public void createMotherboardBtn(){
+        motherBoardBtn = (Button)findViewById(R.id.motherb_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, MotherboardActivity.class);
+        motherBoardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Starting Motherboard activity", Toast.LENGTH_SHORT).show();
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
+
+    }
 
     Button memoryBtn;
-    public void createMemoryBtn(){}
+    public void createMemoryBtn(){
+        memoryBtn = (Button)findViewById(R.id.memory_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, MemoryActivity.class);
+        memoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Starting Memory Activity", Toast.LENGTH_SHORT).show();
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
+    }
 
     Button gpuBtn;
     public void createVideoCardBtn(){}
@@ -64,5 +95,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createCPUBtn();
+        createCPUCoolerBtn();
+        createMotherboardBtn();
+        createMemoryBtn();
     }
 }
